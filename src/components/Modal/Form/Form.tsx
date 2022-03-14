@@ -6,11 +6,29 @@ import { Button } from '@mui/material';
 import Styles from './Form.module.css'
 import { Status } from '../../../types/Status';
 import { user } from '../../../types/User';
+import { TodoList } from '../../../types/Todo';
 
 
 const Form: FC<Status> = ({ isConnected }) => {
 
-    const [user, setUser] = useState<user>({ name: '', password: '', url: 'https://i.ibb.co/qWB7xcq/Octocat-removebg-preview.png' });
+    const todos: [TodoList] =
+        [
+            {
+                name: 'Muscilation',
+                list: [
+                    { checked: false, description: 'bar fix x10', title: 'dos' },
+                    { checked: false, description: 'bar fix x10', title: 'bras' },
+                    { checked: false, description: 'bar fix x10', title: 'cuisse' }
+                ]
+            }
+        ];
+
+    const [user, setUser] = useState<user>({
+        name: '',
+        password: '',
+        url: 'https://i.ibb.co/qWB7xcq/Octocat-removebg-preview.png',
+        todoList: todos
+    });
 
     const refresh = () => window.location.reload();
     const handleClick = () => {

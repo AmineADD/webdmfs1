@@ -1,10 +1,10 @@
 type Todo={
     title:string;
     description:string;
-    checked:string;
+    checked:boolean;
 };
 
 export type TodoList={
-    list:[Todo];
+    list:Todo[];
     name:string;
 }

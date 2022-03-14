@@ -4,5 +4,5 @@ export type user={
     name:String;
     password?:String;
     url?:string;
-    todoList?:[TodoList];
+    todoList?:TodoList[];
 }

@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { user } from '../../types/User';
 import LoginOrRegister from '../Modal/Modal';
+import TodoList from '../TodoList/TodoList';
 import User from '../User/User';
 import styles from './Main.module.css'
 
@@ -13,7 +14,12 @@ const Main: FC<{
       <LoginOrRegister isConnected={user?.name !== undefined} />
     </div>
     <div className={styles.grid}>
-      {user?.name && (<User user={user} />)}
+      {user?.name && user?.todoList && (<>
+        <User user={user} />
+        <TodoList todolist={user?.todoList} />
+      </>
+      )}
+
     </div>
   </div>);
 
