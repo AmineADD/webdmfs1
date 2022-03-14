@@ -1,18 +1,20 @@
 import { FC } from 'react'
-import { Status } from '../../types/Status';
+import { user } from '../../types/User';
 import LoginOrRegister from '../Modal/Modal';
+import User from '../User/User';
 import styles from './Main.module.css'
 
-
-
-const Main: FC<Status> = ({ isConnected }) => {
-  return (
+const Main: FC<{
+  user: user | undefined;
+}> = ({ user }) => (
+  <div className={styles.description}>
     <div className={styles.description}>
-      <div className={styles.description}>
-        <code className={styles.code}>TODO List : Efrei</code>
-        <LoginOrRegister isConnected={isConnected} />
-      </div>
-    </div>)
-}
+      <code className={styles.code}>TODO List : Efrei</code>
+      <LoginOrRegister isConnected={user?.name !== undefined} />
+    </div>
+    <div className={styles.grid}>
+      {user?.name && (<User user={user} />)}
+    </div>
+  </div>);
 
 export default Main;
