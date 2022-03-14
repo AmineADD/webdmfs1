@@ -1,0 +1,5 @@
+.AppBar{
+    background-color: transparent;
+    display: flex;
+    flex-direction: row-reverse;
+}
